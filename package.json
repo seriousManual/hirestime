@@ -1,0 +1,27 @@
+{
+  "name": "hirestime",
+  "version": "0.0.0",
+  "description": "thin wrapper around process.hrtime",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zaphod1984/hirestime.git"
+  },
+  "keywords": [
+    "hrtime",
+    "hirestimer",
+    "milliseconds"
+  ],
+  "author": "Manuel Ernst <zaphod84@gmx.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zaphod1984/hirestime/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.15.1",
+    "chai": "~1.8.1"
+  }
+}

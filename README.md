@@ -1,4 +1,18 @@
-hirestime
-=========
+# hirestime
 
-thin wrapper around process.hrtime
+...because there aren't enough hrtime wrappers yet.
+
+hirestime is a thin wrapper around `process.hrtime()` that returns an function on invocation.
+when these function is invoked the elapsed time in millesconds will be returned:
+
+````javascript
+var hirestime = require('../');
+
+//startpoint of the time measurement
+var getElapsed = hirestime();
+
+setTimeout(function() {
+    //returns the elapsed milliseconds
+    console.log(getElapsed());
+}, 1000);
+````
