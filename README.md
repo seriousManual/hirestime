@@ -2,6 +2,8 @@
 
 ...because there aren't enough hrtime wrappers yet.
 
+[![Build Status](https://travis-ci.org/zaphod1984/hirestime.png)](https://travis-ci.org/zaphod1984/hirestime)
+
 [![NPM](https://nodei.co/npm/hirestime.png)](https://nodei.co/npm/hirestime/)
 
 [![NPM](https://nodei.co/npm-dl/hirestime.png?months=3)](https://nodei.co/npm/hirestime/)
