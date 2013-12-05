@@ -8,8 +8,20 @@
 
 [![NPM](https://nodei.co/npm-dl/hirestime.png?months=3)](https://nodei.co/npm/hirestime/)
 
-hirestime is a thin wrapper around `process.hrtime()` that returns an function on invocation.
-when these function is invoked the elapsed time in millesconds will be returned:
+hirestime is a thin wrapper around `process.hrtime()` that does the clumsy handling of the returned array for you.
+
+## hirestime()
+returns a function:
+### returnedFunction([unit])
+returns the elapsed time since the call of `hirestime` in milliseconds.    
+an optional unit parameter can be specified that will cause an recalculation.    
+possible parameters
+
+* `hirestime.S` elapsed time in seconds
+* `hirestime.MS` elapsed time in milliseoncds
+* `hirestime.NS` elapsed time in nanoseconds
+
+## Examples
 
 ````javascript
 var hirestime = require('../');
@@ -22,3 +34,16 @@ setTimeout(function() {
     console.log(getElapsed());
 }, 1000);
 ````
+ 
+ ````javascript
+var hirestime = require('../');
+
+//startpoint of the time measurement
+var getElapsed = hirestime();
+
+setTimeout(function() {
+    //returns the elapsed seconds
+    console.log(getElapsed(hirestime.S));
+}, 1000);
+````
+ 
