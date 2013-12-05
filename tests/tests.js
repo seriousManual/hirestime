@@ -55,4 +55,10 @@ describe('hirestime', function() {
         expect(getElapsed(hirestime.NS)).to.equal(100000);
     });
 
+    it('should return an approximate number of elapsed time in seconds (unknown unit)', function() {
+        hrtimeMock(100);
+        var getElapsed = hirestime();
+
+        expect(getElapsed('foo')).to.equal(100);
+    });
 });
