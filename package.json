@@ -23,6 +23,6 @@
   "devDependencies": {
     "mocha": "~1.15.1",
     "chai": "~1.8.1",
-    "hrtimemock": "0.0.1"
+    "hrtimemock": "0.0.2"
   }
 }

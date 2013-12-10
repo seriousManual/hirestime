@@ -8,7 +8,12 @@ function hirestime() {
     return function(unit) {
         var elapsed = process.hrtime(start);
 
-        return recalc(elapsed[0] * 1e3 + elapsed[1] / 1e6, unit);
+        var time;
+        if(unit === S) time = elapsed[0] + elapsed[1] / 1e9;
+        else if(unit === NS) time = elapsed[0] * 1e9 + elapsed[1];
+        else if(unit === MS || !unit || !time) time = elapsed[0] * 1e3 + elapsed[1] / 1e6;
+
+        return parseInt(time * 100, 10) / 100;
     }
 }
 
