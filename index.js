@@ -17,16 +17,6 @@ function hirestime() {
     }
 }
 
-function recalc(msTime, unit) {
-    var time;
-    if(!unit || unit === MS)  time = msTime;
-    if(unit === S) time = msTime / 1000;
-    if(unit === NS) time = msTime * 1000;
-    if(!time) time = msTime;
-
-    return parseInt(time * 100, 10) / 100;
-}
-
 hirestime.S = S;
 hirestime.MS = MS;
 hirestime.NS = NS;
