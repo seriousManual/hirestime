@@ -1,6 +1,6 @@
 {
   "name": "hirestime",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "thin wrapper around process.hrtime",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,10 @@
   "keywords": [
     "hrtime",
     "hirestimer",
-    "milliseconds"
+    "milliseconds",
+    "seconds",
+    "nanoseconds",
+    "high resolution timer"
   ],
   "author": "Manuel Ernst <zaphod84@gmx.de>",
   "license": "MIT",
