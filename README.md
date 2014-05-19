@@ -1,8 +1,6 @@
-# hirestime
+# hirestime [![Build Status](https://travis-ci.org/zaphod1984/hirestime.png)](https://travis-ci.org/zaphod1984/hirestime)
 
 ...because there aren't enough hrtime wrappers yet.
-
-[![Build Status](https://travis-ci.org/zaphod1984/hirestime.png)](https://travis-ci.org/zaphod1984/hirestime)
 
 [![NPM](https://nodei.co/npm/hirestime.png)](https://nodei.co/npm/hirestime/)
 
@@ -10,8 +8,15 @@
 
 hirestime is a thin wrapper around `process.hrtime()` that does the clumsy handling of the returned array for you.
 
+## Installation
+
+````bash
+npm install hirestime
+````
+
 ## hirestime()
 returns a function:
+
 ### returnedFunction([unit])
 returns the elapsed time since the call of `hirestime` in milliseconds.    
 an optional unit parameter can be specified that will cause an recalculation.    
