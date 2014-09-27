@@ -1,6 +1,6 @@
 {
   "name": "hirestime",
-  "version": "0.2.5",
+  "version": "1.0.0",
   "description": "thin wrapper around process.hrtime",
   "main": "index.js",
   "scripts": {
