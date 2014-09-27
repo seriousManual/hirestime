@@ -24,8 +24,8 @@
     "url": "https://github.com/zaphod1984/hirestime/issues"
   },
   "devDependencies": {
-    "mocha": "~1.15.1",
-    "chai": "~1.8.1",
-    "hrtimemock": "0.0.2"
+    "chai": "^1.9.1",
+    "hrtimemock": "0.0.2",
+    "mocha": "^1.21.4"
   }
 }
