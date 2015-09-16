@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zaphod1984/hirestime.git"
+    "url": "git://github.com/seriousManual/hirestime.git"
   },
   "keywords": [
     "hrtime",
@@ -16,12 +16,16 @@
     "milliseconds",
     "seconds",
     "nanoseconds",
-    "high resolution timer"
+    "high resolution timer",
+    "profiling",
+    "profiler",
+    "timing",
+    "measurement"
   ],
-  "author": "Manuel Ernst <zaphod84@gmx.de>",
+  "author": "Manuel Ernst <seriousstuff@gmx.de>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zaphod1984/hirestime/issues"
+    "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
     "chai": "^1.9.1",
