@@ -1,4 +1,4 @@
-# hirestime [![Build Status](https://travis-ci.org/zaphod1984/hirestime.png)](https://travis-ci.org/zaphod1984/hirestime)
+# hirestime [![Build Status](https://api.travis-ci.org/seriousManual/hirestime.png)](https://travis-ci.org/seriousmanual/hirestime)
 
 ...because there aren't enough hrtime wrappers yet.
 
