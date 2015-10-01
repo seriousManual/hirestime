@@ -1,6 +1,6 @@
 {
   "name": "hirestime",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "thin wrapper around process.hrtime",
   "main": "index.js",
   "scripts": {
@@ -28,8 +28,8 @@
     "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
+    "chai": "1.10.0",
     "hrtimemock": "1.0.0",
-    "mocha": "^1.21.4"
+    "mocha": "1.21.5"
   }
 }
