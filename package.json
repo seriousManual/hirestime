@@ -28,8 +28,8 @@
     "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
-    "chai": "^1.9.1",
-    "hrtimemock": "^0.0.2",
-    "mocha": "^1.21.4"
+    "chai": "1.10.0",
+    "hrtimemock": "0.0.2",
+    "mocha": "1.21.5"
   }
 }
