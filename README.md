@@ -1,7 +1,5 @@
 # hirestime [![Build Status](https://api.travis-ci.org/seriousManual/hirestime.png)](https://travis-ci.org/seriousmanual/hirestime)
 
-...because there aren't enough hrtime wrappers yet.
-
 [![NPM](https://nodei.co/npm/hirestime.png)](https://nodei.co/npm/hirestime/)
 
 [![NPM](https://nodei.co/npm-dl/hirestime.png?months=3)](https://nodei.co/npm/hirestime/)
