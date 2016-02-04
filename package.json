@@ -30,6 +30,6 @@
   "devDependencies": {
     "chai": "3.4.1",
     "hrtimemock": "1.0.1",
-    "mocha": "2.3.4"
+    "mocha": "2.4.5"
   }
 }
