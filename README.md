@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/hirestime.png)](https://nodei.co/npm/hirestime/)
 
-[![NPM](https://nodei.co/npm-dl/hirestime.png?months=3)](https://nodei.co/npm/hirestime/)
+[![NPM](https://nodei.co/npm-dl/hirestime.png?months=12)](https://nodei.co/npm/hirestime/)
 
 hirestime is a thin wrapper around `process.hrtime()` that does the clumsy handling of the returned array for you.
 
