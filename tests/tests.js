@@ -1,42 +1,35 @@
-var expect = require('chai').expect;
-var hrtimeMock = require('hrtimemock');
+var expect = require('chai').expect
+var hrtimeMock = require('hrtimemock')
 
-var hirestime = require('../');
+var hirestime = require('../')
 
 describe('hirestime', function() {
 
-    it('should return an approximate number of elapsed time in milliseconds (no unit given)', function() {
-        hrtimeMock(1100);
-        var getElapsed = hirestime();
+    it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
+        hrtimeMock(1119)
+        var getElapsed = hirestime()
 
-        expect(getElapsed()).to.equal(1100);
-    });
+        expect(getElapsed()).to.equal(1119)
+    })
 
-    it('should return an approximate number of elapsed time in seconds (seconds unit)', function() {
-        hrtimeMock(1100);
-        var getElapsed = hirestime();
+    it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
+        hrtimeMock(1119)
+        var getElapsed = hirestime()
 
-        expect(getElapsed(hirestime.S)).to.equal(1.1);
-    });
+        expect(getElapsed(hirestime.S)).to.equal(1.12)
+    })
 
-    it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', function() {
-        hrtimeMock(1100);
-        var getElapsed = hirestime();
+    it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
+        hrtimeMock(1119)
+        var getElapsed = hirestime()
 
-        expect(getElapsed(hirestime.MS)).to.equal(1100);
-    });
+        expect(getElapsed(hirestime.MS)).to.equal(1119)
+    })
 
-    it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', function() {
-        hrtimeMock(1100);
-        var getElapsed = hirestime();
+    it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
+        hrtimeMock(1119)
+        var getElapsed = hirestime()
 
-        expect(getElapsed(hirestime.NS)).to.equal(1100000000);
-    });
-
-    it('should return an approximate number of elapsed time in milliseconds (unknown unit)', function() {
-        hrtimeMock(1100);
-        var getElapsed = hirestime();
-
-        expect(getElapsed('foo')).to.equal(1100);
-    });
-});
+        expect(getElapsed(hirestime.NS)).to.equal(1119000000)
+    })
+})
