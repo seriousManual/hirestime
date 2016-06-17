@@ -27,26 +27,26 @@ possible parameters
 ## Examples
 
 ````javascript
-var hirestime = require('../');
+var hirestime = require('../')
 
 //startpoint of the time measurement
-var getElapsed = hirestime();
+var getElapsed = hirestime()
 
-setTimeout(function() {
+setTimeout(_ => {
     //returns the elapsed milliseconds
-    console.log(getElapsed());
-}, 1000);
+    console.log(getElapsed())
+}, 1000)
 ````
  
  ````javascript
-var hirestime = require('../');
+var hirestime = require('../')
 
 //startpoint of the time measurement
-var getElapsed = hirestime();
+var getElapsed = hirestime()
 
-setTimeout(function() {
+setTimeout(_ => {
     //returns the elapsed seconds
-    console.log(getElapsed(hirestime.S));
-}, 1000);
+    console.log(getElapsed(hirestime.S))
+}, 1000)
 ````
  
