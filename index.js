@@ -45,13 +45,7 @@ function hiresTimeBrowser() {
     }
 }
 
-module.exports = function() {
-    if (process.hrtime) {
-        return hirestimeNode()
-    } else {
-        return hiresTimeBrowser()
-    }
-}
+module.exports = process.hrtime ? hirestimeNode : hiresTimeBrowser
 
 module.exports.S = S
 module.exports.MS = MS

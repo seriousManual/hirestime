@@ -2,11 +2,15 @@ var sinon = require('sinon')
 var expect = require('chai').expect
 var hrtimeMock = require('hrtimemock')
 
-var hirestime = require('../')
-
 describe('hirestime', function() {
 
     describe('node', () => {
+        var hirestime
+        before(() => hirestime = require('../'))
+        after(() => {
+            delete require.cache[require.resolve('../')]
+        })
+
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
             hrtimeMock(1119)
             var getElapsed = hirestime()
@@ -37,12 +41,15 @@ describe('hirestime', function() {
     })
 
     describe('browser', () => {
+        var hirestime
         var tmpHirestime = process.hrtime
         var clock
         before(() => {
             tmpHirestime = process.hrtime
             process.hrtime = null
             clock = sinon.useFakeTimers()
+
+            hirestime = require('../')
         })
         after(() => process.hrtime = tmpHirestime)
 
