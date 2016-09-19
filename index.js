@@ -4,7 +4,7 @@ var NS = 'ns'
 
 var round = number => Math.round(number * 100) / 100
 
-function hirestime() {
+function hirestimeNode() {
     var start = process.hrtime()
 
     return unit => {
@@ -25,8 +25,34 @@ function hirestime() {
     }
 }
 
-hirestime.S = S
-hirestime.MS = MS
-hirestime.NS = NS
+function hiresTimeBrowser() {
+    var start = Date.now()
 
-module.exports = hirestime
+    return unit => {
+        var elapsed = Date.now() - start
+
+        if (!unit) unit = MS
+
+        switch (unit) {
+            case S:
+                return round(elapsed / 1e3)
+
+            case NS:
+                return round(elapsed * 1e6)
+        }
+
+        return elapsed
+    }
+}
+
+module.exports = function() {
+    if (process.hrtime) {
+        return hirestimeNode()
+    } else {
+        return hiresTimeBrowser()
+    }
+}
+
+module.exports.S = S
+module.exports.MS = MS
+module.exports.NS = NS
