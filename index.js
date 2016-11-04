@@ -10,18 +10,15 @@ function hirestimeNode() {
     return unit => {
         var elapsed = process.hrtime(start)
 
-        if (!unit) unit = MS
-
         switch (unit) {
             case S:
                 return round(elapsed[0] + elapsed[1] / 1e9)
 
-            case MS:
-                return round(elapsed[0] * 1e3 + elapsed[1] / 1e6)
-
             case NS:
                 return round(elapsed[0] * 1e9 + elapsed[1])
         }
+
+        return round(elapsed[0] * 1e3 + elapsed[1] / 1e6)
     }
 }
 
@@ -30,8 +27,6 @@ function hiresTimeBrowser() {
 
     return unit => {
         var elapsed = Date.now() - start
-
-        if (!unit) unit = MS
 
         switch (unit) {
             case S:
