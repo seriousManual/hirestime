@@ -4,8 +4,8 @@
 
 [![NPM](https://nodei.co/npm-dl/hirestime.png?months=12)](https://nodei.co/npm/hirestime/)
 
-hirestime is a thin wrapper around `process.hrtime()` that does the clumsy handling of the returned array for you.
-Since version 2.1 this module also works in the browser.
+`hirestime` is a thin wrapper around `process.hrtime()` that does the clumsy handling of the returned array for you.    
+Also works in the browser.
 
 ## Installation
 
@@ -17,9 +17,10 @@ npm install hirestime
 returns a function:
 
 ### returnedFunction([unit])
-returns the elapsed time since the call of `hirestime` in milliseconds.    
-an optional unit parameter can be specified that will cause an recalculation.    
-possible parameters
+Returns the elapsed time since the call of `hirestime` in milliseconds.    
+An optional unit parameter can be specified that will modify the unit in which the elapsed time will be calculated.    
+
+#### Possible Parameters
 
 * `hirestime.S` elapsed time in seconds
 * `hirestime.MS` elapsed time in milliseoncds
@@ -27,11 +28,12 @@ possible parameters
 
 ## Examples
 
+By default the time is measured in milliseconds
 ````javascript
-var hirestime = require('../')
+const hirestime = require('hirestime')
 
 //startpoint of the time measurement
-var getElapsed = hirestime()
+const getElapsed = hirestime()
 
 setTimeout(_ => {
     //returns the elapsed milliseconds
@@ -39,11 +41,12 @@ setTimeout(_ => {
 }, 1000)
 ````
  
+### Optionally the unit can be set to be seconds or nanoseconds
  ````javascript
-var hirestime = require('../')
+const hirestime = require('hirestime')
 
 //startpoint of the time measurement
-var getElapsed = hirestime()
+const getElapsed = hirestime()
 
 setTimeout(_ => {
     //returns the elapsed seconds
