@@ -28,7 +28,7 @@ An optional unit parameter can be specified that will modify the unit in which t
 
 ## Examples
 
-By default the time is measured in milliseconds
+By default the time is measured in milliseconds:
 ````javascript
 const hirestime = require('hirestime')
 
@@ -41,7 +41,7 @@ setTimeout(_ => {
 }, 1000)
 ````
  
-### Optionally the unit can be set to be seconds or nanoseconds
+Optionally the unit can be set to be seconds or nanoseconds:
  ````javascript
 const hirestime = require('hirestime')
 
