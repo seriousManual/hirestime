@@ -1,14 +1,16 @@
-var S = 's'
-var MS = 'ms'
-var NS = 'ns'
+'use strict'
 
-var round = number => Math.round(number * 100) / 100
+const S = 's'
+const MS = 'ms'
+const NS = 'ns'
+
+const round = number => Math.round(number * 100) / 100
 
 function hirestimeNode() {
-    var start = process.hrtime()
+    const start = process.hrtime()
 
     return unit => {
-        var elapsed = process.hrtime(start)
+        let elapsed = process.hrtime(start)
 
         switch (unit) {
             case S:
@@ -23,7 +25,7 @@ function hirestimeNode() {
 }
 
 function hiresTimeBrowser() {
-    var start = Date.now()
+    const start = Date.now()
 
     return unit => {
         var elapsed = Date.now() - start
