@@ -23,7 +23,7 @@ An optional unit parameter can be specified that will modify the unit in which t
 #### Possible Parameters
 
 * `hirestime.S` elapsed time in seconds
-* `hirestime.MS` elapsed time in milliseoncds
+* `hirestime.MS` elapsed time in milliseconds
 * `hirestime.NS` elapsed time in nanoseconds
 
 ## Examples
