@@ -1,4 +1,4 @@
-# hirestime [![Build Status](https://api.travis-ci.org/seriousManual/hirestime.png)](https://travis-ci.org/seriousmanual/hirestime)
+# hirestime [![Build Status](https://api.travis-ci.org/seriousManual/hirestime.png)](https://travis-ci.org/seriousManual/hirestime)
 
 [![NPM](https://nodei.co/npm/hirestime.png)](https://nodei.co/npm/hirestime/)
 
