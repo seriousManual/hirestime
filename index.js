@@ -6,43 +6,53 @@ const NS = 'ns'
 
 const round = number => Math.round(number * 100) / 100
 
+function formatFromMs(value, unit) {
+    if (!unit || unit === MS) {
+        return round(value)
+    }
+
+    if (unit === S) {
+        return round(value / 1e3)
+    }
+
+    return round(value * 1e6)
+}
+
 function hirestimeNode() {
     const start = process.hrtime()
-
     return unit => {
         let elapsed = process.hrtime(start)
+        let value = elapsed[0] * 1e3 + elapsed[1] / 1e6
 
-        switch (unit) {
-            case S:
-                return round(elapsed[0] + elapsed[1] / 1e9)
-
-            case NS:
-                return round(elapsed[0] * 1e9 + elapsed[1])
-        }
-
-        return round(elapsed[0] * 1e3 + elapsed[1] / 1e6)
+        return formatFromMs(value, unit);
     }
 }
 
-function hiresTimeBrowser() {
+function hiresTimeBrowserPerformance() {
+    const start = window.performance.now()
+    return unit => formatFromMs(window.performance.now() - start, unit)
+}
+
+function hiresTimeBrowserDate() {
     const start = Date.now()
-
-    return unit => {
-        var elapsed = Date.now() - start
-
-        switch (unit) {
-            case S:
-                return round(elapsed / 1e3)
-
-            case NS:
-                return round(elapsed * 1e6)
-        }
-
-        return elapsed
-    }
+    return unit => formatFromMs(Date.now() - start, unit)
 }
 
-module.exports = process.hrtime ? hirestimeNode : hiresTimeBrowser
+module.exports = (() => {
+    if (typeof process != "undefined" && process.hrtime) {
+        return hirestimeNode
+    }
+
+    if (typeof window != "undefined" && window.performance) {
+        return hiresTimeBrowserDate
+    }
+
+    return hiresTimeBrowserDate
+})()
+
+module.exports.node = hirestimeNode
+module.exports.browserDate = hiresTimeBrowserDate
+module.exports.hiresTimeBrowserPerformance = hiresTimeBrowserPerformance
 
 module.exports.S = S
 module.exports.MS = MS

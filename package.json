@@ -4,7 +4,7 @@
   "description": "thin wrapper around process.hrtime",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
