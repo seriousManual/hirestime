@@ -44,7 +44,7 @@ module.exports = (() => {
     }
 
     if (typeof window != "undefined" && window.performance) {
-        return hiresTimeBrowserDate
+        return hiresTimeBrowserPerformance
     }
 
     return hiresTimeBrowserDate
