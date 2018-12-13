@@ -2,8 +2,6 @@
 
 [![NPM](https://nodei.co/npm/hirestime.png)](https://nodei.co/npm/hirestime/)
 
-[![NPM](https://nodei.co/npm-dl/hirestime.png?months=12)](https://nodei.co/npm/hirestime/)
-
 `hirestime` is a thin wrapper around the common time measuring APIs (node and the browser).
 Uses `process.hrtime()` on node, the [performance API](https://developer.mozilla.org/de/docs/Web/API/Performance/now) in the browser and falls back to `Date` if neither is available.
 
