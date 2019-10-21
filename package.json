@@ -29,9 +29,9 @@
     "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^3.4.0",
-    "sinon": "^1.17.6"
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "sinon": "^7.5.0"
   },
   "engines": {
     "node": ">=4.0"
