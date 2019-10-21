@@ -1,5 +1,3 @@
-'use strict'
-
 const S = 's'
 const MS = 'ms'
 const NS = 'ns'
