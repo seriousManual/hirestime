@@ -4,10 +4,12 @@ const S = 's'
 const MS = 'ms'
 const NS = 'ns'
 
+let DEP_WARNING = false
+
 const round = number => Math.round(number * 100) / 100
 
-function formatFromMs(value, unit) {
-    if (!unit || unit === MS) {
+function formatFromMs(value, unit = MS) {
+    if (unit === MS) {
         return round(value)
     }
 
@@ -18,24 +20,40 @@ function formatFromMs(value, unit) {
     return round(value * 1e6)
 }
 
+function getElapsor(getTime) {
+    const ret = unit => {
+        if (unit && !DEP_WARNING) {
+            console.log('hirestime: please note that specifying a unit is deprecated and will be removed in the future, use the named methods instead')
+            DEP_WARNING = true
+        }
+
+        return formatFromMs(getTime(), unit);
+    }
+
+    ret.s = ret.seconds = () => formatFromMs(getTime(), S)
+    ret.ms = ret.milliseconds = () => formatFromMs(getTime(), MS)
+    ret.ns = ret.nanoseconds = () => formatFromMs(getTime(), NS)
+
+    return ret
+}
+
 function hirestimeNode() {
     const start = process.hrtime()
-    return unit => {
-        let elapsed = process.hrtime(start)
-        let value = elapsed[0] * 1e3 + elapsed[1] / 1e6
 
-        return formatFromMs(value, unit);
-    }
+    return getElapsor(() => {
+        let elapsed = process.hrtime(start)
+        return elapsed[0] * 1e3 + elapsed[1] / 1e6
+    });
 }
 
 function hiresTimeBrowserPerformance() {
     const start = window.performance.now()
-    return unit => formatFromMs(window.performance.now() - start, unit)
+    return getElapsor(() => window.performance.now() - start)
 }
 
 function hiresTimeBrowserDate() {
     const start = Date.now()
-    return unit => formatFromMs(Date.now() - start, unit)
+    return getElapsor(() => Date.now() - start)
 }
 
 module.exports = (() => {

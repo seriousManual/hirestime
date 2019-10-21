@@ -25,6 +25,20 @@ describe('hirestime', function () {
             expect(getElapsed(hirestime.S)).to.equal(1.12)
         })
 
+        it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
+            hrtimeMock(1119)
+            const getElapsed = hirestime()
+
+            expect(getElapsed.s()).to.equal(1.12)
+        })
+
+        it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
+            hrtimeMock(1119)
+            const getElapsed = hirestime()
+
+            expect(getElapsed.seconds()).to.equal(1.12)
+        })
+
         it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
             hrtimeMock(1119)
             const getElapsed = hirestime()
@@ -32,11 +46,39 @@ describe('hirestime', function () {
             expect(getElapsed(hirestime.MS)).to.equal(1119)
         })
 
+        it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
+            hrtimeMock(1119)
+            const getElapsed = hirestime()
+
+            expect(getElapsed.ms()).to.equal(1119)
+        })
+
+        it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
+            hrtimeMock(1119)
+            const getElapsed = hirestime()
+
+            expect(getElapsed.milliseconds()).to.equal(1119)
+        })
+
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
             hrtimeMock(1119)
             const getElapsed = hirestime()
 
             expect(getElapsed(hirestime.NS)).to.equal(1119000000)
+        })
+
+        it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
+            hrtimeMock(1119)
+            const getElapsed = hirestime()
+
+            expect(getElapsed.ns()).to.equal(1119000000)
+        })
+
+        it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
+            hrtimeMock(1119)
+            const getElapsed = hirestime()
+
+            expect(getElapsed.nanoseconds()).to.equal(1119000000)
         })
     })
 
