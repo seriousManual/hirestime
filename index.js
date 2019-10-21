@@ -27,7 +27,7 @@ function getElapsor(getTime) {
             DEP_WARNING = true
         }
 
-        return formatFromMs(getTime(), unit);
+        return formatFromMs(getTime(), unit)
     }
 
     ret.s = ret.seconds = () => formatFromMs(getTime(), S)
@@ -43,7 +43,7 @@ function hirestimeNode() {
     return getElapsor(() => {
         let elapsed = process.hrtime(start)
         return elapsed[0] * 1e3 + elapsed[1] / 1e6
-    });
+    })
 }
 
 function hiresTimeBrowserPerformance() {
