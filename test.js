@@ -2,12 +2,11 @@
 
 const sinon = require('sinon')
 const expect = require('chai').expect
-const hrtimeMock = require('hrtimemock')
+const { mockPerformance, hrtimeMock } = require('./lib/timeMocks')
 
 const hirestime = require('./')
 
 describe('hirestime', function () {
-
     describe('node', () => {
         let hirestime
         before(() => hirestime = require('./').node)
@@ -105,23 +104,4 @@ describe('hirestime', function () {
     })
 })
 
-function mockPerformance (msTime) {
-    let isFirst = true
-    let random = parseInt(Math.random() * 1000000, 10)
-
-    global.window = {
-        performance: {
-            now: () => {
-                if (isFirst) {
-                    isFirst = false;
-
-                    return random;
-                } else {
-                    isFirst = true;
-
-                    return random + msTime;
-                }
-            }
-        }
-    }
-}
+module.exports = hrtimeMock;

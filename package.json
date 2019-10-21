@@ -4,7 +4,8 @@
   "description": "thin wrapper around process.hrtime",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha test.js",
+    "test:watch": "mocha test.js --watch"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "hrtimemock": "^2.0.0",
     "mocha": "^3.4.0",
     "sinon": "^1.17.6"
   },
