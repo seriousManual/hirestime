@@ -1,4 +1,4 @@
-function mockPerformance (msTime) {
+export function mockPerformance (msTime) {
     let isFirst = true
     let random = parseInt(Math.random() * 1000000, 10)
 
@@ -19,7 +19,7 @@ function mockPerformance (msTime) {
     }
 }
 
-function hrtimeMock(msTime) {
+export function hrtimeMock(msTime) {
     var _hrtime = process.hrtime;
 
     var returnValue = [
@@ -40,9 +40,4 @@ function hrtimeMock(msTime) {
             return returnValue;
         }
     }
-}
-
-module.exports = {
-    mockPerformance,
-    hrtimeMock
 }

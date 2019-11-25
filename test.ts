@@ -1,147 +1,138 @@
-'use strict'
+import * as sinon from 'sinon';
+import { expect } from 'chai';
 
-const sinon = require('sinon')
-const expect = require('chai').expect
-const { mockPerformance, hrtimeMock } = require('./lib/timeMocks')
+import { hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode, MS, NS, S } from './index'
+import { mockPerformance, hrtimeMock } from './lib/timeMocks'
 
-const hirestime = require('./')
+console.log(hiresTimeBrowserDate, hirestimeNode, hiresTimeBrowserPerformance);
 
 describe('hirestime', function () {
     describe('node', () => {
-        let hirestime
-        before(() => hirestime = require('./').node)
-
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed()).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
-            expect(getElapsed(hirestime.S)).to.equal(1.12)
+            expect(getElapsed(S)).to.equal(1.12)
         })
 
         it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed.s()).to.equal(1.12)
         })
 
         it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed.seconds()).to.equal(1.12)
         })
 
         it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
-            expect(getElapsed(hirestime.MS)).to.equal(1119)
+            expect(getElapsed(MS)).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed.ms()).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed.milliseconds()).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
-            expect(getElapsed(hirestime.NS)).to.equal(1119000000)
+            expect(getElapsed(NS)).to.equal(1119000000)
         })
 
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed.ns()).to.equal(1119000000)
         })
 
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
             hrtimeMock(1119)
-            const getElapsed = hirestime()
+            const getElapsed = hirestimeNode()
 
             expect(getElapsed.nanoseconds()).to.equal(1119000000)
         })
     })
 
     describe('browserDate', () => {
-        let browserHirestime
         let clock
         before(() => {
             clock = sinon.useFakeTimers()
-
-            browserHirestime = require('./').browserDate
         })
 
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
-            const getElapsed = browserHirestime()
+            const getElapsed = hiresTimeBrowserDate()
             clock.tick(1119)
             expect(getElapsed()).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
-            const getElapsed = browserHirestime()
+            const getElapsed = hiresTimeBrowserDate()
             clock.tick(1119)
-            expect(getElapsed(hirestime.S)).to.equal(1.12)
+            expect(getElapsed(S)).to.equal(1.12)
         })
 
         it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
-            const getElapsed = browserHirestime()
+            const getElapsed = hiresTimeBrowserDate()
             clock.tick(1119)
-            expect(getElapsed(hirestime.MS)).to.equal(1119)
+            expect(getElapsed(MS)).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
-            const getElapsed = browserHirestime()
+            const getElapsed = hiresTimeBrowserDate()
             clock.tick(1119)
-            expect(getElapsed(hirestime.NS)).to.equal(1119000000)
+            expect(getElapsed(NS)).to.equal(1119000000)
         })
     })
 
     describe('browserPerformance', () => {
-        let browserHirestimePerformance
-
         before(() => {
             mockPerformance(1119)
-            browserHirestimePerformance = require('./').hiresTimeBrowserPerformance
         })
 
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
-            const getElapsed = browserHirestimePerformance()
+            const getElapsed = hiresTimeBrowserPerformance()
             expect(getElapsed()).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in seconds (seconds unit)', () => {
-            const getElapsed = browserHirestimePerformance()
-            expect(getElapsed(hirestime.S)).to.equal(1.12)
+            const getElapsed = hiresTimeBrowserPerformance()
+            expect(getElapsed(S)).to.equal(1.12)
         })
 
         it('should return an approximate number of elapsed time in milliseconds (milliseconds unit)', () => {
-            const getElapsed = browserHirestimePerformance()
-            expect(getElapsed(hirestime.MS)).to.equal(1119)
+            const getElapsed = hiresTimeBrowserPerformance()
+            expect(getElapsed(MS)).to.equal(1119)
         })
 
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
-            const getElapsed = browserHirestimePerformance()
-            expect(getElapsed(hirestime.NS)).to.equal(1119000000)
+            const getElapsed = hiresTimeBrowserPerformance()
+            expect(getElapsed(NS)).to.equal(1119000000)
         })
     })
 })
