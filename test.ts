@@ -4,8 +4,6 @@ import { expect } from 'chai';
 import { hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode, MS, NS, S } from './index'
 import { mockPerformance, hrtimeMock } from './lib/timeMocks'
 
-console.log(hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode);
-
 describe('hirestime', function () {
     describe('node', () => {
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {

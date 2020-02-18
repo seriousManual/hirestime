@@ -8,7 +8,8 @@
         "experimentalDecorators": false,
         "types": [
             "node"
-        ]
+        ],
+        "declaration": true
     },
     "include": [
         "./**/*.ts",

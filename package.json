@@ -1,10 +1,11 @@
 {
   "name": "hirestime",
-  "version": "5.0.0",
+  "version": "5.0.4",
   "description": "thin wrapper around process.hrtime",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "tsc -p .",
     "test": "TS_NODE_TRANSPILE_ONLY=true NODE_ENV=test mocha --require ts-node/register test.ts",
     "test:watch": "TS_NODE_TRANSPILE_ONLY=true NODE_ENV=test mocha --require ts-node/register --watch test.ts"
