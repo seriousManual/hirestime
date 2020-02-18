@@ -9,6 +9,7 @@ let DEP_WARNING = false
 const round = (number: number) => Math.round(number * 100) / 100
 
 function formatFromMs(value, unit: unit = MS) {
+    console.log(value, unit);
     if (unit === MS) {
         return round(value)
     }
@@ -21,7 +22,7 @@ function formatFromMs(value, unit: unit = MS) {
 }
 
 function getElapsor(getTime) {
-    const ret = (unit: unit = null) => {
+    const ret = (unit: unit = undefined) => {
         if (unit && !DEP_WARNING) {
             console.log('hirestime: please note that specifying a unit is deprecated and will be removed in the future, use the named methods instead')
             DEP_WARNING = true

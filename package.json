@@ -2,8 +2,10 @@
   "name": "hirestime",
   "version": "4.0.0",
   "description": "thin wrapper around process.hrtime",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc -p .",
     "test": "TS_NODE_TRANSPILE_ONLY=true NODE_ENV=test mocha --require ts-node/register test.ts",
     "test:watch": "TS_NODE_TRANSPILE_ONLY=true NODE_ENV=test mocha --require ts-node/register --watch test.ts"
   },
@@ -29,6 +31,7 @@
     "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
+    "@types/mocha": "^7.0.1",
     "@types/node": "^12.12.12",
     "chai": "^4.2.0",
     "mocha": "^6.2.2",

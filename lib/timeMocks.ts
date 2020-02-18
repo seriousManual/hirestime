@@ -1,7 +1,8 @@
 export function mockPerformance (msTime) {
     let isFirst = true
-    let random = parseInt(Math.random() * 1000000, 10)
+    let random = Math.round(Math.random() * 1000000)
 
+    // @ts-ignore
     global.window = {
         performance: {
             now: () => {
@@ -23,11 +24,13 @@ export function hrtimeMock(msTime) {
     var _hrtime = process.hrtime;
 
     var returnValue = [
-        parseInt(msTime / 1e3, 10),
+        Math.round(msTime / 1e3),
         (msTime % 1000) * 1e6
     ];
 
     var isFirst = true;
+
+    // @ts-ignore
     process.hrtime = function() {
         if (isFirst) {
             isFirst = false;

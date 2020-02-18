@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import { hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode, MS, NS, S } from './index'
 import { mockPerformance, hrtimeMock } from './lib/timeMocks'
 
-console.log(hiresTimeBrowserDate, hirestimeNode, hiresTimeBrowserPerformance);
+console.log(hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode);
 
 describe('hirestime', function () {
     describe('node', () => {
