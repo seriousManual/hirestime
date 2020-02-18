@@ -27,7 +27,7 @@ Using the parameter is deprecated though, instead you should use the namend meth
 
 By default the time is measured in milliseconds:
 ````javascript
-const hirestime = require('hirestime')
+import hirestime from 'hirestime'
 
 //startpoint of the time measurement
 const getElapsed = hirestime()
@@ -40,7 +40,7 @@ setTimeout(_ => {
 
 Specify the unit:
  ````javascript
-const hirestime = require('hirestime')
+import hirestime from 'hirestime'
 
 //startpoint of the time measurement
 const getElapsed = hirestime()
@@ -59,19 +59,3 @@ setTimeout(_ => {
     console.log(getElapsed.nanoseconds())
 }, 1000)
 ````
- 
-
-
-Optionally the unit can be set to be seconds or nanoseconds (deprecated):
- ````javascript
-const hirestime = require('hirestime')
-
-//startpoint of the time measurement
-const getElapsed = hirestime()
-
-setTimeout(_ => {
-    //returns the elapsed seconds
-    console.log(getElapsed(hirestime.S))
-}, 1000)
-````
- 
