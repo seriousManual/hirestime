@@ -9,7 +9,6 @@ let DEP_WARNING = false
 const round = (number: number) => Math.round(number * 100) / 100
 
 function formatFromMs(value, unit: unit = MS) {
-    console.log(value, unit);
     if (unit === MS) {
         return round(value)
     }
