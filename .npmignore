@@ -1,7 +1,6 @@
 .idea
 node_modules
 .travis.yml
-examples
 tsconfig.json
 *.ts
 !*.d.ts

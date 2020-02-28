@@ -1,38 +1,11 @@
-export const S = 's'
-export const MS = 'ms'
-export const NS = 'ns'
-
-type unit = 's' | 'ms' | 'ns'
-
-let DEP_WARNING = false
-
 const round = (number: number) => Math.round(number * 100) / 100
 
-function formatFromMs(value, unit: unit = MS) {
-    if (unit === MS) {
-        return round(value)
-    }
-
-    if (unit === S) {
-        return round(value / 1e3)
-    }
-
-    return round(value * 1e6)
-}
-
 function getElapsor(getTime) {
-    const ret = (unit: unit = undefined) => {
-        if (unit && !DEP_WARNING) {
-            console.log('hirestime: please note that specifying a unit is deprecated and will be removed in the future, use the named methods instead')
-            DEP_WARNING = true
-        }
+    const ret = () => round(getTime())
 
-        return formatFromMs(getTime(), unit)
-    }
-
-    ret.s = ret.seconds = () => formatFromMs(getTime(), S)
-    ret.ms = ret.milliseconds = () => formatFromMs(getTime(), MS)
-    ret.ns = ret.nanoseconds = () => formatFromMs(getTime(), NS)
+    ret.s = ret.seconds = () => round(getTime() / 1e3)
+    ret.ms = ret.milliseconds = () => round(getTime())
+    ret.ns = ret.nanoseconds = () => round(getTime() * 1e6)
 
     return ret
 }

@@ -12,16 +12,8 @@ npm install hirestime
 ## hirestime()
 returns a function:
 
-### returnedFunction([unit])
+### returnedFunction()
 Returns the elapsed time since the call of `hirestime` in milliseconds.    
-An optional unit parameter can be specified that will modify the unit in which the elapsed time will be calculated.
-Using the parameter is deprecated though, instead you should use the namend methods to specify the recalculation unit.
-
-#### Possible Parameters (deprecated)
-
-* `hirestime.S` elapsed time in seconds
-* `hirestime.MS` elapsed time in milliseconds
-* `hirestime.NS` elapsed time in nanoseconds
 
 ## Examples
 
