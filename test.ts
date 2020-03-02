@@ -80,5 +80,3 @@ describe('hirestime', function () {
         })
     })
 })
-
-module.exports = hrtimeMock;
