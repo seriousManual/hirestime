@@ -6,9 +6,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "tsc -p .",
-    "test": "TS_NODE_TRANSPILE_ONLY=true NODE_ENV=test mocha --require ts-node/register test.ts",
-    "test:watch": "TS_NODE_TRANSPILE_ONLY=true NODE_ENV=test mocha --require ts-node/register --watch test.ts"
+    "build": "tsc",
+    "test": "ts-mocha --require test/windowMock.js --paths test/**/*.ts",
+    "test:watch": "ts-mocha --require test/windowMock.js --paths test/**/*.ts -w --watch-extensions ts"
   },
   "repository": {
     "type": "git",
@@ -32,13 +32,18 @@
     "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
-    "@types/mocha": "^7.0.1",
-    "@types/node": "^12.12.12",
+    "@types/chai": "^4.2.12",
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^14.0.27",
+    "@types/sinon": "^9.0.4",
     "chai": "^4.2.0",
-    "mocha": "^6.2.2",
-    "sinon": "^7.5.0",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.4"
+    "mocha": "^8.0.1",
+    "sinon": "^9.0.2",
+    "ts-mocha": "^7.0.0",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^3.9.7"
   },
   "engines": {
     "node": ">=6.0"

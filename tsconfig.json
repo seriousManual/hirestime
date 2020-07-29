@@ -1,21 +1,42 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist",
-        "skipLibCheck": true,
-        "module": "commonjs",
-        "target": "es2018",
-        "emitDecoratorMetadata": false,
-        "experimentalDecorators": false,
-        "types": [
-            "node"
-        ],
-        "declaration": true
-    },
+    "compileOnSave": false,
+    "buildOnSave": false,
     "include": [
-        "./**/*.ts",
+        "src/**/*"
     ],
     "exclude": [
-        "node_modules",
-        "test.ts",
-    ]
+        "node_modules"
+    ],
+    "typeAcquisition": {
+        "enable": false
+    },
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "src/*",
+                "*"
+            ]
+        },
+        "outDir": "./dist/",
+        "diagnostics": false,
+        "sourceMap": true,
+        "alwaysStrict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "pretty": true,
+        "target": "es2018",
+        "module": "CommonJS",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "declaration": true,
+        "experimentalDecorators": false,
+        "emitDecoratorMetadata": false,
+        "allowSyntheticDefaultImports": true,
+        "traceResolution": false
+    }
 }

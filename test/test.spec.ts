@@ -1,15 +1,15 @@
-import * as sinon from 'sinon';
+import { useFakeTimers } from 'sinon';
 import { expect } from 'chai';
 
-import { hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode } from './index'
-import { mockPerformance, hrtimeMock } from './lib/timeMocks'
+import { hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode } from 'index'
 
-describe('hirestime', function () {
+import { hrtimeMock, mockPerformance } from "./timeMocks";
+
+describe('hirestime', () => {
     describe('node', () => {
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
             hrtimeMock(1119.1111)
             const getElapsed = hirestimeNode()
-
             expect(getElapsed()).to.equal(1119.11)
         })
 
@@ -41,6 +41,20 @@ describe('hirestime', function () {
             expect(getElapsed.milliseconds()).to.equal(1119.11)
         })
 
+        it('should return an approximate number of elapsed time in microseconds (microseconds unit)', () => {
+            hrtimeMock(1119.1111)
+            const getElapsed = hirestimeNode()
+
+            expect(getElapsed.us()).to.equal(1119111.1)
+        })
+
+        it('should return an approximate number of elapsed time in microseconds (microseconds unit)', () => {
+            hrtimeMock(1119.1111)
+            const getElapsed = hirestimeNode()
+
+            expect(getElapsed.microseconds()).to.equal(1119111.1)
+        })
+
         it('should return an approximate number of elapsed time in nanoseconds (nanoseconds unit)', () => {
             hrtimeMock(1119.1111)
             const getElapsed = hirestimeNode()
@@ -57,25 +71,24 @@ describe('hirestime', function () {
     })
 
     describe('browserDate', () => {
-        let clock
-        before(() => {
-            clock = sinon.useFakeTimers()
-        })
 
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
+            const clock = useFakeTimers()
             const getElapsed = hiresTimeBrowserDate()
             clock.tick(1119.1111)
+
             expect(getElapsed()).to.equal(1119)
+
+            clock.restore()
         })
     })
 
     describe('browserPerformance', () => {
-        before(() => {
-            mockPerformance(1119.1111)
-        })
 
         it('should return an approximate number of elapsed time in milliseconds (no unit given)', () => {
+            mockPerformance(1119.1111)
             const getElapsed = hiresTimeBrowserPerformance()
+
             expect(getElapsed()).to.equal(1119.11)
         })
     })
