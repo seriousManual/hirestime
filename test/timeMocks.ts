@@ -7,7 +7,7 @@ export const hrtimeMock = (duration: number) => {
     const hrt = (startTime: HrTimeTuple): HrTimeTuple => {
         if (first) {
             first = false;
-            return [ 0, 0 ];
+            return [ 0, 0 ]
         }
         process.hrtime = realHrTime
         return [ Math.round(duration / 1e3), (duration % 1000) * 1e6 ]
