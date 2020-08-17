@@ -15,19 +15,17 @@ export interface Elapsor {
 
 const getElapsor = (startTime: number, getTime: () => number): Elapsor => {
     const elapsor = () => round(getTime())
+
     elapsor.startedAt = () => startTime
-    elapsor.seconds = () => round(getTime() / 1e3)
-    elapsor.s = elapsor.seconds;
-    elapsor.milliseconds = () => round(getTime())
-    elapsor.ms = elapsor.milliseconds
-    elapsor.microseconds = () => round(getTime() * 1e3)
-    elapsor.us = elapsor.microseconds
-    elapsor.nanoseconds = () => round(getTime() * 1e6)
-    elapsor.ns = elapsor.nanoseconds
+    elapsor.seconds = elapsor.s = () => round(getTime() / 1e3)
+    elapsor.milliseconds = elapsor.ms = () => round(getTime())
+    elapsor.microseconds = elapsor.us = () => round(getTime() * 1e3)
+    elapsor.nanoseconds = elapsor.ns = () => round(getTime() * 1e6)
+
     return elapsor;
 }
 
-const hrTimeToMillis = (hrtime: [ number, number ]) => hrtime[0] * 1e3 + hrtime[1] / 1e6
+const hrTimeToMillis = (hrtime: [number, number]) => hrtime[0] * 1e3 + hrtime[1] / 1e6
 
 export const hirestimeNode = (): Elapsor => {
     const start = process.hrtime()
@@ -48,7 +46,7 @@ const isRunningInNode = () => typeof process !== "undefined" && process.hrtime
 const isRunningInBrowser = () => typeof window !== "undefined" && window.performance
 
 const hirestime = isRunningInNode() ? hirestimeNode :
-                        isRunningInBrowser() ? hiresTimeBrowserPerformance :
-                        hiresTimeBrowserDate
+    isRunningInBrowser() ? hiresTimeBrowserPerformance :
+        hiresTimeBrowserDate
 
 export default hirestime
