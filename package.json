@@ -2,11 +2,23 @@
   "name": "hirestime",
   "version": "6.1.0",
   "description": "thin wrapper around process.hrtime",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "dist/index.js",
+      "require": "dist/index.cjs",
+      "default": "dist/index.js"
+    }
+  },
   "types": "dist/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "tsc",
+    "build": "run-s build:*",
+    "build:esm": "npx esbuild --format=esm --sourcemap --outfile=dist/index.js src/index.ts",
+    "build:cjs": "npx esbuild --format=cjs --sourcemap --outfile=dist/index.cjs src/index.ts",
+    "build:types": "tsc",
     "test": "ts-mocha --require test/windowMock.js --paths test/**/*.ts",
     "test:watch": "ts-mocha --require test/windowMock.js --paths test/**/*.ts -w --watch-extensions ts"
   },
@@ -32,20 +44,22 @@
     "url": "https://github.com/seriousManual/hirestime/issues"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.12",
+    "@types/chai": "^4.2.21",
     "@types/expect": "^24.3.0",
-    "@types/mocha": "^8.0.0",
-    "@types/node": "^14.0.27",
+    "@types/mocha": "^8.2.3",
+    "@types/node": "^16.3.1",
     "@types/sinon": "^9.0.4",
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
+    "esbuild": "^0.12.15",
     "mocha": "^8.0.1",
+    "npm-run-all": "^4.1.5",
     "sinon": "^9.0.2",
     "ts-mocha": "^7.0.0",
-    "ts-node": "^8.10.2",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.9.7"
+    "ts-node": "^10.1.0",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "^4.3.5"
   },
   "engines": {
-    "node": ">=6.0"
+    "node": ">=12.0"
   }
 }
