@@ -1,5 +1,3 @@
-
-window = {
+global.window = {
     performance: {}
 };
-global.window = window;

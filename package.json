@@ -1,12 +1,20 @@
 {
   "name": "hirestime",
   "version": "6.1.0",
+  "type": "module",
   "description": "thin wrapper around process.hrtime",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.esm.js",
+    "types": "./dist/index.d.ts"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.esm.js",
+  "umd:main": "./dist/index.umd.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "prepublish": "npm run build",
-    "build": "tsc",
+    "build": "microbundle --no-sourcemap",
     "test": "ts-mocha --require test/windowMock.js --paths test/**/*.ts",
     "test:watch": "ts-mocha --require test/windowMock.js --paths test/**/*.ts -w --watch-extensions ts"
   },
@@ -38,13 +46,16 @@
     "@types/node": "^17.0.35",
     "@types/sinon": "^10.0.11",
     "chai": "^4.2.0",
+    "microbundle": "^0.15.1",
     "mocha": "^10.0.0",
     "sinon": "^14.0.0",
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.7.0",
-    "tsconfig-paths": "^4.0.0",
-    "typescript": "^4.6.4"
+    "tsconfig-paths": "^4.0.0"
   },
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=6.0"
   }

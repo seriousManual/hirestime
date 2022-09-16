@@ -1,9 +1,11 @@
 import { useFakeTimers } from 'sinon';
 import { expect } from 'chai';
 
-import { hiresTimeBrowserDate, hiresTimeBrowserPerformance, hirestimeNode } from '../src/index'
-
 import { hrtimeMock, mockPerformance } from "./timeMocks";
+
+import hirestimeNode from '../src/hiresTimeNode'
+import hiresTimeBrowserDate from '../src/hiresTimeBrowserDate'
+import hiresTimeBrowserPerformance from '../src/hiresTimeBrowserPerformance'
 
 describe('hirestime', () => {
     describe('node', () => {
