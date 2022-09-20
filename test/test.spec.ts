@@ -1,15 +1,16 @@
-import { useFakeTimers } from 'sinon';
-import { expect } from 'chai';
+import { useFakeTimers } from 'sinon'
+import { expect } from 'chai'
 
-import { hrtimeMock, mockPerformance } from "./timeMocks";
+import { hrtimeMock, mockPerformance } from './timeMocks'
 
-import hirestimeNode from '../src/hiresTimeNode'
-import hiresTimeBrowserDate from '../src/hiresTimeBrowserDate'
-import hiresTimeBrowserPerformance from '../src/hiresTimeBrowserPerformance'
+import { 
+    hiresTimeBrowserDate, 
+    hiresTimeBrowserPerformance, 
+    hirestimeNode
+} from '../src/hirestime'
 
 describe('hirestime', () => {
     describe('node', () => {
-
         it('should return the timestamp when the timer was started in milliseconds', () => {
             const now = process.hrtime()
             const timer = hirestimeNode()
@@ -80,7 +81,6 @@ describe('hirestime', () => {
     })
 
     describe('browserDate', () => {
-
         it('should return the timestamp when the timer was started in milliseconds', () => {
             const now = Date.now()
             const timer = hiresTimeBrowserDate()
@@ -99,7 +99,6 @@ describe('hirestime', () => {
     })
 
     describe('browserPerformance', () => {
-
         it('should return the timestamp when the timer was started in milliseconds', () => {
             const now = mockPerformance(1119.1111)
             const timer = hiresTimeBrowserPerformance()
