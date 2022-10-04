@@ -5,8 +5,8 @@
   "description": "thin wrapper around process.hrtime",
   "exports": {
     "require": "./dist/index.cjs",
-    "default": "./dist/index.esm.js",
-    "types": "./dist/index.d.ts"
+    "types": "./dist/index.d.ts",
+    "default": "./dist/index.esm.js"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.esm.js",
